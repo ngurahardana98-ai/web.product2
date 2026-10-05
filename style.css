@@ -1,0 +1,169 @@
+/* Variabel CSS & Global Reset */
+:root {
+    --primary-color: #4A3525;
+    --accent-color: #C68B59;
+    --bg-color: #F9F6F0;
+    --text-color: #333333;
+    --white: #FFFFFF;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Flexbox untuk Header & Navigasi (1 Dimensi) */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.logo-container img {
+    width: 30px;
+    height: 30px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Tata Letak Konten Utama (Mobile First) */
+main {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 2rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.hero-image img, .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* CSS Grid untuk Kartu Produk & Fitur (2 Dimensi) */
+.features-grid, .product-grid, .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.feature-card, .product-card, .testimonial-card, .promo-aside {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.price {
+    display: block;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.promo-aside {
+    background-color: #EFE3D0;
+    margin-top: 1.5rem;
+    border-left: 5px solid var(--accent-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* RESPONSIVE DESIGN (Media Queries) */
+
+/* 1. Tablet Breakpoint (min-width: 768px) */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+    }
+
+    .hero-section {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+    }
+
+    .hero-content, .hero-image {
+        flex: 1;
+    }
+}
+
+/* 2. Desktop Breakpoint (min-width: 1024px) */
+@media (min-width: 1024px) {
+    main {
+        padding: 2rem;
+    }
+    
+    .hero-section {
+        gap: 3rem;
+    }
+}
